@@ -1,0 +1,9 @@
+.btn-primary:hover {
+  background-color: #ffffff;
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}

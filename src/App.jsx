@@ -1,7 +1,8 @@
+import Navbar from "./components/layout/Navbar";
 const App = () => {
   return (
     <div>
-      <h1>Hello Figma</h1>
+      <Navbar />
     </div>
   );
 };

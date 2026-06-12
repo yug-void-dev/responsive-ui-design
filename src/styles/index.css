@@ -1,19 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 
 @theme {
-  --font-roboto: "Roboto", sans-serif;
+  --font-sans: "Roboto", sans-serif;
 
-  /* Primary blue from your Figma */
-  --color-primary: #3B35C3;
+  /* Brand colors from Figma */
+  --color-primary: #3b35c3;
+  --color-accent: #facc15;
+}
 
-  /* Accent yellow from your Figma */
-  --color-accent: #FACC15;
-
-  /* Typography scale — Desktop */
-  --text-h1-desktop: 64px;
-  --text-h2-desktop: 48px;
-  --text-large-title: 24px;
-  --text-title: 20px;
-  --text-body: 18px;
+body {
+  font-family: var(--font-sans);
 }
