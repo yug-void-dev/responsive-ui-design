@@ -1,9 +1,13 @@
-const App = () => {
+import HeroSection from "./components/sections/HeroSection";
+import WhyCompliance from "./components/sections/WhyCompliance";
+
+function App() {
   return (
-    <div>
-      <h1>Hello Figma</h1>
-    </div>
+    <>
+      <HeroSection />
+      <WhyCompliance />
+    </>
   );
-};
+}
 
 export default App;
