@@ -191,13 +191,3 @@ export function ContactIcon({ className = "w-5 h-5" }) {
     </svg>
   );
 }
-
-// Maps the `icon` key from constants/index.js navLinks to the actual icon component
-export const navIconMap = {
-  home: HomeIcon,
-  about: AboutIcon,
-  services: ServicesIcon,
-  pricing: PricingIcon,
-  faq: FaqIcon,
-  contact: ContactIcon,
-};

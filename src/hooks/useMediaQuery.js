@@ -1,20 +1,13 @@
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 
 export default function useMediaQuery(query) {
-  const [matches, setMatches] = useState(
+  return useSyncExternalStore(
+    (callback) => {
+      const mediaQueryList = window.matchMedia(query);
+      mediaQueryList.addEventListener("change", callback);
+      return () => mediaQueryList.removeEventListener("change", callback);
+    },
     () => typeof window !== "undefined" && window.matchMedia(query).matches,
+    () => false
   );
-
-  useEffect(() => {
-    const mediaQueryList = window.matchMedia(query);
-    const listener = (event) => setMatches(event.matches);
-
-    // Set initial value (in case it changed between render and effect)
-    setMatches(mediaQueryList.matches);
-
-    mediaQueryList.addEventListener("change", listener);
-    return () => mediaQueryList.removeEventListener("change", listener);
-  }, [query]);
-
-  return matches;
 }

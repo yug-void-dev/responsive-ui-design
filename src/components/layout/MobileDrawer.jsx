@@ -1,8 +1,17 @@
 import Logo from "../ui/Logo";
 import Button from "../ui/Button";
-import { CloseIcon, PhoneIcon, navIconMap } from "../ui/Icons";
+import { CloseIcon } from "../ui/Icons";
 import { navLinks } from "../../constants";
 import "./MobileDrawer.css";
+
+const navIconMap = {
+  home: "/assets/icons/Home.png",
+  about: "/assets/icons/AboutUs.png",
+  services: "/assets/icons/Our Services.png",
+  pricing: "/assets/icons/Pricing.png",
+  faq: "/assets/icons/FAQ.png",
+  contact: "/assets/icons/Contact.png",
+};
 
 export default function MobileDrawer({ isOpen, onClose }) {
   return (
@@ -23,11 +32,11 @@ export default function MobileDrawer({ isOpen, onClose }) {
       >
         {/* Header: Logo + Close button */}
         <div className="flex items-center justify-between mb-8">
-          <Logo dark />
+          <Logo />
           <button
             onClick={onClose}
             aria-label="Close menu"
-            className="text-white"
+            className="text-[#1a1a2e] hover:text-primary transition-colors cursor-pointer"
           >
             <CloseIcon className="w-6 h-6" />
           </button>
@@ -36,7 +45,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
         {/* Nav links with icons */}
         <nav className="flex flex-col gap-5 mb-8">
           {navLinks.map((link) => {
-            const Icon = navIconMap[link.icon];
+            const iconSrc = navIconMap[link.icon];
             const isActive = link.name === "Home";
             return (
               <a
@@ -44,10 +53,14 @@ export default function MobileDrawer({ isOpen, onClose }) {
                 href={link.href}
                 onClick={onClose}
                 className={`flex items-center gap-3 text-[18px] font-medium transition-colors duration-200 ${
-                  isActive ? "text-primary" : "text-white hover:text-primary"
+                  isActive ? "text-primary" : "text-[#1a1a2e] hover:text-primary"
                 }`}
               >
-                <Icon className="w-5 h-5" />
+                <img
+                  src={iconSrc}
+                  alt=""
+                  className="w-5 h-5 object-contain"
+                />
                 {link.name}
               </a>
             );
@@ -57,7 +70,13 @@ export default function MobileDrawer({ isOpen, onClose }) {
         {/* Contact Us button pinned at bottom */}
         <Button
           variant="primary"
-          icon={<PhoneIcon className="w-4 h-4" />}
+          icon={
+            <img
+              src="/assets/icons/Contact-icon.png"
+              alt=""
+              className="w-4 h-4 object-contain brightness-0 invert"
+            />
+          }
           className="w-full mt-auto"
         >
           Contact Us

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Logo from "../ui/Logo";
 import Button from "../ui/Button";
-import { HamburgerIcon, PhoneIcon } from "../ui/Icons";
 import { navLinks } from "../../constants";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import MobileDrawer from "./MobileDrawer";
@@ -39,16 +38,29 @@ export default function Navbar() {
 
         {/* Right side: Contact Us (desktop) or Hamburger (tablet/mobile) */}
         {isDesktop ? (
-          <Button variant="primary" icon={<PhoneIcon className="w-4 h-4" />}>
+          <Button
+            variant="primary"
+            icon={
+              <img
+                src="/assets/icons/Contact-icon.png"
+                alt=""
+                className="w-4 h-4 object-contain brightness-0 invert"
+              />
+            }
+          >
             Contact Us
           </Button>
         ) : (
           <button
             onClick={() => setIsDrawerOpen(true)}
             aria-label="Open menu"
-            className="text-[#1A1A2E]"
+            className="text-[#1A1A2E] cursor-pointer"
           >
-            <HamburgerIcon className="w-6 h-6" />
+            <img
+              src="/assets/icons/Menu.png"
+              alt="Menu"
+              className="w-6 h-6 object-contain"
+            />
           </button>
         )}
       </div>
