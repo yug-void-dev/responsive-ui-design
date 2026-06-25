@@ -8,15 +8,13 @@ import "./Navbar.css";
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isDesktop = useMediaQuery("(min-width: 1025px)");
 
   return (
     <header className="navbar">
       <div className="navbar__container">
-        {/* Logo */}
         <Logo />
 
-        {/* Desktop nav links */}
         {isDesktop && (
           <nav className="navbar__links">
             {navLinks.map((link) => {
@@ -25,9 +23,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`navbar__link ${
-                    isActive ? "navbar__link--active" : ""
-                  }`}
+                  className={`navbar__link ${isActive ? "navbar__link--active" : ""}`}
                 >
                   {link.name}
                 </a>
@@ -36,7 +32,6 @@ export default function Navbar() {
           </nav>
         )}
 
-        {/* Right side: Contact Us (desktop) or Hamburger (tablet/mobile) */}
         {isDesktop ? (
           <Button
             variant="primary"
@@ -44,7 +39,7 @@ export default function Navbar() {
               <img
                 src="/assets/icons/Contact-icon.png"
                 alt=""
-                className="w-4 h-4 object-contain brightness-0 invert"
+                className="navbar__contact-icon"
               />
             }
           >
@@ -54,18 +49,17 @@ export default function Navbar() {
           <button
             onClick={() => setIsDrawerOpen(true)}
             aria-label="Open menu"
-            className="text-[#1A1A2E] cursor-pointer"
+            className="navbar__hamburger"
           >
             <img
               src="/assets/icons/Menu.png"
               alt="Menu"
-              className="w-6 h-6 object-contain"
+              className="navbar__hamburger-icon"
             />
           </button>
         )}
       </div>
 
-      {/* Slide-out drawer for tablet/mobile */}
       {!isDesktop && (
         <MobileDrawer
           isOpen={isDrawerOpen}

@@ -1,11 +1,11 @@
 export default function Logo() {
   return (
-    <div className="flex items-center gap-2">
+    <a href="#home" className="logo-link" aria-label="Go to homepage">
       <img
         src="/assets/images/Logo.png"
-        className="h-9 sm:h-10 lg:h-11.25 w-auto"
+        className="logo-img"
         alt="Logo"
       />
-    </div>
+    </a>
   );
 }

@@ -3,21 +3,36 @@
 
 @theme {
   --font-sans: "Roboto", sans-serif;
-
-  /* Brand colors from Figma */
   --color-primary: #3b35c3;
   --color-accent: #facc15;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
-  font-family: var(--font-sans);
+  font-family: 'Roboto', sans-serif;
   color: #1a1a2e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Figma Responsive Typography */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
 .font-h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 64px;
@@ -82,9 +97,16 @@ body {
   }
   .font-large-title {
     font-size: 22px;
+    line-height: 32px;
   }
   .font-title {
     font-size: 19px;
   }
+  .font-body-regular {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  .font-body-medium {
+    font-size: 16px;
+  }
 }
-

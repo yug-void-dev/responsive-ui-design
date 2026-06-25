@@ -1,15 +1,19 @@
 .hero {
   width: 100%;
-  min-height: calc(100vh - 90px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background: #ffffff;
+  position: relative;
+  overflow: visible;
+}
+
+.hero-container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 60px 80px;
-  background: #ffffff;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: calc(100vh - 90px);
 }
 
 .hero-left {
@@ -20,16 +24,16 @@
 
 .hero-left h1 {
   color: #111827;
-  margin-bottom: 24px;
+  margin: 0 0 24px 0;
 }
 
-.hero-left h1 span {
+.hero-left h1 .highlight {
   color: var(--color-primary);
   position: relative;
   display: inline-block;
 }
 
-.hero-left h1 span::after {
+.hero-left h1 .highlight::after {
   content: "";
   position: absolute;
   left: 0;
@@ -41,10 +45,10 @@
   background-repeat: no-repeat;
 }
 
-.hero-left p {
-  margin-top: 24px;
-  margin-bottom: 32px;
-  max-width: 580px;
+.hero-desc {
+  margin-top: 0;
+  margin-bottom: 28px;
+  max-width: 560px;
   color: #555870;
 }
 
@@ -54,7 +58,7 @@
   margin: 0 0 36px 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .hero-checklist li {
@@ -66,6 +70,7 @@
 .check-icon {
   width: 20px;
   height: 20px;
+  flex-shrink: 0;
   object-fit: contain;
 }
 
@@ -92,7 +97,6 @@
   color: #e2e5ff;
 }
 
-/* Hero Right Column */
 .hero-right {
   flex: 0.9;
   display: flex;
@@ -104,7 +108,7 @@
 .chevrons-top-left-circle {
   position: absolute;
   top: -20px;
-  left: 40px;
+  left: 30px;
   display: flex;
   gap: 4px;
   z-index: 2;
@@ -113,7 +117,7 @@
 .hero-image-container {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,27 +131,29 @@
   z-index: 1;
 }
 
-/* Badges Styles */
 .badge-rating {
   position: absolute;
-  top: 32%;
-  right: -10px;
+  top: 28%;
+  right: -16px;
   background: #ffffff;
   padding: 12px 18px;
   border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0px 10px 30px rgba(59, 53, 195, 0.08);
-  border: 1px solid rgba(59, 53, 195, 0.05);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  box-shadow: 0px 10px 30px rgba(59, 53, 195, 0.12);
+  border: 1px solid rgba(59, 53, 195, 0.06);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.3s ease;
   cursor: pointer;
   z-index: 10;
+  white-space: nowrap;
+  animation: float-badge 3s ease-in-out infinite;
 }
 
 .badge-rating:hover {
   transform: translateY(-5px) scale(1.03);
-  box-shadow: 0px 15px 35px rgba(59, 53, 195, 0.15);
+  box-shadow: 0px 18px 40px rgba(59, 53, 195, 0.18);
 }
 
 .rating-value {
@@ -182,46 +188,50 @@
 
 .badge-trusted {
   position: absolute;
-  bottom: 22%;
-  left: -20px;
+  bottom: 20%;
+  left: -24px;
   background: #ffffff;
-  padding: 12px 18px;
+  padding: 14px 18px;
   border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0px 10px 30px rgba(59, 53, 195, 0.08);
-  border: 1px solid rgba(59, 53, 195, 0.05);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  box-shadow: 0px 10px 30px rgba(59, 53, 195, 0.12);
+  border: 1px solid rgba(59, 53, 195, 0.06);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.3s ease;
   cursor: pointer;
   z-index: 10;
+  white-space: nowrap;
+  animation: float-badge 3s ease-in-out infinite 1.5s;
 }
 
 .badge-trusted:hover {
   transform: translateY(-5px) scale(1.03);
-  box-shadow: 0px 15px 35px rgba(59, 53, 195, 0.15);
+  box-shadow: 0px 18px 40px rgba(59, 53, 195, 0.18);
 }
 
 .trusted-icon-box {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 10px;
   background-color: var(--color-primary);
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
+  flex-shrink: 0;
 }
 
 .trusted-briefcase {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .trusted-text-box {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .trusted-label {
@@ -231,10 +241,11 @@
 }
 
 .trusted-value {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-primary);
-  margin: 1px 0;
+  margin: 2px 0 1px;
+  line-height: 1;
 }
 
 .trusted-sub {
@@ -243,13 +254,18 @@
   font-weight: 500;
 }
 
-/* Tablet Layout (1024px breakpoint) */
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
 @media (max-width: 1024px) {
-  .hero {
-    flex-direction: column-reverse;
+  .hero-container {
+    flex-direction: column;
     text-align: center;
     padding: 60px 40px;
     gap: 48px;
+    min-height: unset;
   }
 
   .hero-left {
@@ -259,12 +275,12 @@
     align-items: center;
   }
 
-  .hero-left h1 span::after {
+  .hero-left h1 .highlight::after {
     bottom: -4px;
     height: 10px;
   }
 
-  .hero-left p {
+  .hero-desc {
     margin-left: auto;
     margin-right: auto;
     max-width: 600px;
@@ -288,6 +304,8 @@
 
   .hero-right {
     width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
   }
 
   .chevrons-top-left-circle {
@@ -297,17 +315,18 @@
   }
 
   .badge-rating {
-    right: 10px;
+    right: 0;
+    top: 28%;
   }
 
   .badge-trusted {
-    left: 10px;
+    left: 0;
+    bottom: 18%;
   }
 }
 
-/* Mobile Layout (480px breakpoint) */
 @media (max-width: 480px) {
-  .hero {
+  .hero-container {
     padding: 40px 20px;
     gap: 36px;
   }
@@ -318,7 +337,8 @@
     width: 100%;
   }
 
-  .hero-buttons button {
+  .hero-buttons button,
+  .hero-buttons a {
     width: 100%;
   }
 
@@ -329,8 +349,9 @@
   .badge-rating {
     padding: 8px 12px;
     border-radius: 12px;
-    right: -5px;
-    top: 30%;
+    right: -4px;
+    top: 28%;
+    gap: 8px;
   }
 
   .rating-value {
@@ -347,28 +368,30 @@
   }
 
   .badge-trusted {
-    padding: 8px 12px;
+    padding: 9px 12px;
     border-radius: 12px;
-    left: -5px;
-    bottom: 18%;
+    left: -4px;
+    bottom: 16%;
+    gap: 8px;
   }
 
   .trusted-icon-box {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 8px;
   }
 
   .trusted-briefcase {
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
   }
 
   .trusted-value {
-    font-size: 15px;
+    font-size: 16px;
   }
 
-  .trusted-label, .trusted-sub {
+  .trusted-label,
+  .trusted-sub {
     font-size: 11px;
   }
 }

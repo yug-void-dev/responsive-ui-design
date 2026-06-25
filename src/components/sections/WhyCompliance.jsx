@@ -23,7 +23,6 @@ function WhyCompliance() {
     <section className="why-compliance" id="services">
       <div className="why-container">
         <div className="why-layout">
-          
           <div className="why-left">
             <div className="heading-container">
               <h2 className="font-h2">
@@ -31,7 +30,6 @@ function WhyCompliance() {
                 <br />
                 For Research Analysts
               </h2>
-              {/* Scribble arrow pointing down-right */}
               <img
                 src="/assets/images/Vector2.png"
                 alt="arrow"
@@ -46,7 +44,6 @@ function WhyCompliance() {
               />
             </div>
 
-            {/* Chevrons at bottom left of section */}
             <div className="why-chevrons">
               {[...Array(6)].map((_, i) => (
                 <svg key={i} className="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4">
@@ -70,7 +67,6 @@ function WhyCompliance() {
                   <div className="feature-icon-wrapper">
                     <img src={card.icon} alt={card.title} className="feature-card-icon" />
                   </div>
-
                   <div className="feature-card-text">
                     <h3 className="font-large-title">{card.title}</h3>
                     <p className="font-body-regular">{card.description}</p>
@@ -79,7 +75,6 @@ function WhyCompliance() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>
